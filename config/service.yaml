@@ -1,0 +1,15 @@
+default: &default
+  NAME: count_me_up
+  VERSION: 1.0.0
+  TECHNOLOGY: nodejs
+  OWNER: hyde.zhang@gmail.com
+  HOST: '0.0.0.0'
+  PORT: 8000
+  LOGLEVEL: info
+
+development: &development
+  <<: *default
+  LOGLEVEL: debug
+
+test: &test
+  <<: *default
