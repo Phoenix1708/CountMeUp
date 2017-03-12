@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Phoenix1708/CountMeUp#readme",
   "dependencies": {
+    "konfig": "^0.2.1",
+    "pino": "^4.0.3",
+    "restify": "^4.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
