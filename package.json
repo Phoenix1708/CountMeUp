@@ -1,0 +1,30 @@
+{
+  "name": "count_me_up",
+  "version": "1.0.0",
+  "description": "partition choices sent to the queue by candidate percentage",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "node ./lib/index.js",
+    "test": "mocha \"./spec/**/*.test.js\" -b -R spec --timeout 100000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phoenix1708/CountMeUp.git"
+  },
+  "author": "Hyde Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Phoenix1708/CountMeUp/issues"
+  },
+  "homepage": "https://github.com/Phoenix1708/CountMeUp#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "node-mocks-http": "^1.6.1",
+    "rewire": "^2.5.2",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0"
+  }
+}
