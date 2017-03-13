@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Phoenix1708/CountMeUp#readme",
   "dependencies": {
     "konfig": "^0.2.1",
+    "mongodb": "^2.2.24",
     "pino": "^4.0.3",
     "restify": "^4.3.0"
   },

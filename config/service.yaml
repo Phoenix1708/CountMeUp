@@ -6,6 +6,10 @@ default: &default
   HOST: '0.0.0.0'
   PORT: 8000
   LOGLEVEL: info
+  MONGODB_HOST: 'localhost'
+  MONGODB_PORT: 27017
+  MONGODB_NAME: 'countMeUp'
+  MONGODB_COL_NAME: 'vote'
 
 development: &development
   <<: *default
