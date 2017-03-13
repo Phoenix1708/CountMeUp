@@ -46,6 +46,7 @@ describe('server', function() {
         mockServer = {
             acceptable: ['application/json'],
             get: sinon.spy(),
+            post: sinon.spy(),
             head: sinon.spy(),
             listen: sinon.spy(),
             on: sinon.spy(),
