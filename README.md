@@ -20,8 +20,9 @@ This tools requires MongoDB to be install on your machine. Please consult releva
 
 ## Usage
 
+* First of all, install dependencies - ```npm install```
 * For starting the server - ```npm start```
-* For executing test - ```npm teset```
+* For executing test - ```npm test```
 * Further improvement on automating and tooling can be made
 
 ## License
