@@ -10,6 +10,7 @@ default: &default
   MONGODB_PORT: 27017
   MONGODB_NAME: 'countMeUp'
   MONGODB_COL_NAME: 'vote'
+  MONGODB_USER_COL_NAME: 'user'
 
 development: &development
   <<: *default

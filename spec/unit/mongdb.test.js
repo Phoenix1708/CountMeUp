@@ -1,7 +1,11 @@
 'use strict';
 
-var chai            = require('chai');
-var expect          = chai.expect;
+///////////////////////////////////////////////////////////////////////////////
+// Dependencies
+//
+var chai   = require('chai');
+var expect = chai.expect;
+var config = require('konfig')().service;
 
 // module-under-test
 var mongodb = require('../../lib/utils/mongodb');
@@ -14,15 +18,17 @@ describe('MongoDB helper', function() {
   it('should initialise mongodb with correct collection name', function (done) {
     mongodb.initialise(function(err, result) {
       expect(err).to.be.null;
-      expect(result.collectionName).to.equal('vote');
+      // if other collection creation has error the result collection
+      // name won't be user
+      expect(result.collectionName).to.equal('user');
       done();
     });
   });
 
   it('should be able to insert single doc into mongodb', function (done) {
-    mongodb.insert({user: "test-1", candidate: 2}, function(err, result) {
+    mongodb.storeVotes({user: "test-1", candidate: 2}, function(err, result) {
       expect(err).to.be.null;
-      expect(result.insertedCount).to.equal(1);
+      expect(result.length).to.equal(1);
       done();
     });
   });
@@ -32,17 +38,16 @@ describe('MongoDB helper', function() {
       {user: "test-1", candidate: 5},
       {user: "test-2", candidate: 3}
     ];
-    mongodb.insert(testDocs, function(err, result) {
+    mongodb.storeVotes(testDocs, function(err, result) {
       expect(err).to.be.null;
-      expect(result.insertedCount).to.equal(2);
+      expect(result.length).to.equal(2);
       done();
     });
   });
 
   after(function(done) {
-    mongodb.deleteDocs({user: /^test-*/}, function (err) {
-      done(err);
+    mongodb.deleteDocs(config.MONGODB_COL_NAME, {user: /^test-*/}, function () {
+      mongodb.deleteDocs(config.MONGODB_USER_COL_NAME, {user: /^test-*/}, done);
     });
   })
-
 });

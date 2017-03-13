@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Phoenix1708/CountMeUp#readme",
   "dependencies": {
+    "async": "^2.1.5",
     "konfig": "^0.2.1",
     "mongodb": "^2.2.24",
     "pino": "^4.0.3",
