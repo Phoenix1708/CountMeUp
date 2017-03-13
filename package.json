@@ -22,7 +22,8 @@
     "konfig": "^0.2.1",
     "mongodb": "^2.2.24",
     "pino": "^4.0.3",
-    "restify": "^4.3.0"
+    "restify": "^4.3.0",
+    "supertest": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
