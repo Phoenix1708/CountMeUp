@@ -45,6 +45,36 @@ describe('MongoDB helper', function() {
     });
   });
 
+  describe('user collection update tests', function() {
+    var testVotes = [
+      {user: "test-1", candidate: 1},
+      {user: "test-1", candidate: 2},
+      {user: "test-1", candidate: 3},
+      {user: "test-1", candidate: 4},
+      {user: "test-2", candidate: 5},
+      {user: "test-2", candidate: 6}
+    ];
+
+    it('should not store vote from user who voted 3 times already', function (done) {
+      mongodb.storeVotes(testVotes, function (err) {
+        if (err) return done(err);
+        // check only 3 test-1 vote stored
+        mongodb.queryDocs(config.MONGODB_COL_NAME, {user: "test-1"}, function (err, result) {
+          if (err) return done(err);
+          expect(result.length).to.equal(3);
+
+          // check only 3 test-1 vote stored
+          mongodb.queryDocs(config.MONGODB_USER_COL_NAME, {user: "test-1"}, function (err, usrCount) {
+            if (err) return done(err);
+            expect(usrCount.length).to.equal(1);
+            expect(usrCount[0].vote_count).to.equal(3);
+            done();
+          })
+        })
+      })
+    })
+  });
+
   after(function(done) {
     mongodb.deleteDocs(config.MONGODB_COL_NAME, {user: /^test-*/}, function () {
       mongodb.deleteDocs(config.MONGODB_USER_COL_NAME, {user: /^test-*/}, done);
